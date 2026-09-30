@@ -5,12 +5,29 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
     <script>
+        (function() {
   // Validación básica del origen en el cliente
-  if (window.location.hostname !== "https://belzebub66.github.io/practica1/") {
-      alert("Atención: Estás accediendo desde un dominio no oficial.");
-      // Redirigir al sitio oficial o deshabilitar el formulario
-      window.location.href = "https://belzebub66.github.io/practica1/";
-  }
+// Lista de dominios donde el sitio legítimo tiene permitido ejecutarse
+    const dominiosPermitidos = [
+      "https://belzebub66.github.io/practica1/",
+      "belzebub66.github.io/practica1/",
+      "https://belzebub66.github.io/practica1/index.html",
+      "belzebub66.github.io/practica1/index.html",
+     // Agrega aquí el dominio de tu servidor desplegado
+        "belzebub66.github.io",
+      //"localhost",
+      "127.0.0.1"
+    ];
+
+    const hostActual = window.location.hostname;
+
+    // Verificar si el host actual está en la lista de permitidos
+    if (!dominiosPermitidos.includes(hostActual)) {
+      alert("Atención: Estás accediendo desde un dominio no autorizado (" + hostActual + ").");
+      // Opcional: Redirigir o detener la ejecución
+      // window.location.href = "https://escuela.edu.mx";
+    }
+  })();
 </script>
 </head>
 <body>
