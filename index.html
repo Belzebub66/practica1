@@ -5,19 +5,14 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
     <script>
-        (function() {
+    (function() {
   // Validación básica del origen en el cliente
 // Lista de dominios donde el sitio legítimo tiene permitido ejecutarse
     const dominiosPermitidos = [
-      "https://belzebub66.github.io/practica1/",
-      "belzebub66.github.io/practica1/",
-      "https://belzebub66.github.io/practica1/index.html",
-      "belzebub66.github.io/practica1/index.html",
-     // Agrega aquí el dominio de tu servidor desplegado
         "belzebub66.github.io",
         "https://belzebub66.github.io",
-      //"localhost",
-      "127.0.0.1"
+        "localhost",
+        "127.0.0.1"
     ];
 
     const hostActual = window.location.hostname;
