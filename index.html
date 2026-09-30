@@ -4,27 +4,7 @@
     <title>Login de Alumnos</title>
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
-    <script>
-    (function() {
-  // Validación básica del origen en el cliente
-// Lista de dominios donde el sitio legítimo tiene permitido ejecutarse
-    const dominiosPermitidos = [
-        "belzebub66.github.io",
-        "https://belzebub66.github.io",
-        "localhost",
-        "127.0.0.1"
-    ];
 
-    const hostActual = window.location.hostname;
-
-    // Verificar si el host actual está en la lista de permitidos
-    if (!dominiosPermitidos.includes(hostActual)) {
-      alert("Atención: Estás accediendo desde un dominio no autorizado (" + hostActual + ").");
-      // Opcional: Redirigir o detener la ejecución
-      window.location.href = "https://belzebub66.github.io"; // Redirigir a un sitio seguro
-    }
-  })();
-</script>
 </head>
 <body>
     <h2>Iniciar Sesión</h2>
@@ -38,4 +18,26 @@
         <input type="submit" value="Ver mis datos">
     </form>
 </body>
+<script>
+  (function() {
+    // Dominio oficialmente permitido
+    const dominioOficial = "belzebub66.github.io"; // Cambiar por el dominio final correspondiente
+
+    // Verificar si el hostname actual no coincide con el oficial
+    if (window.location.hostname !== dominioOficial) {
+      
+      // 1. Notificar al usuario (Opcional)
+      alert("Atención: Estás accediendo a una versión no oficial de este sitio. Serás redirigido al dominio oficial.");
+
+      // 2. Redirigir asegurando romper cualquier iframe (top-level redirect)
+      if (window.top !== window.self) {
+        // Si está atrapado en un iframe, redirige la ventana principal completa
+        window.top.location.href = "https://" + dominioOficial;
+      } else {
+        // Redirección directa en la ventana actual
+        window.location.href = "https://" + dominioOficial;
+      }
+    }
+  })();
+</script>
 </html>
