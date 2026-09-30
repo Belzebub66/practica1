@@ -32,10 +32,10 @@
       // 2. Redirigir asegurando romper cualquier iframe (top-level redirect)
       if (window.top !== window.self) {
         // Si está atrapado en un iframe, redirige la ventana principal completa
-        window.top.location.href = "https://" + dominioOficial;
+        window.top.location.href = "https://" + dominioOficial + "/practica1";
       } else {
         // Redirección directa en la ventana actual
-        window.location.href = "https://" + dominioOficial;
+        window.location.href = "https://" + dominioOficial + "/practica1";
       }
     }
   })();
